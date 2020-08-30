@@ -9,6 +9,7 @@ script:
   - docker run perzefi/docker-react npm run test -- --coverage --watchAll=false
 
 deploy:
+  skip_cleanup: true
   provider: elasticbeanstalk
   region: "us-east-1"
   app: "docker"
@@ -18,6 +19,5 @@ deploy:
   on: 
     branch: master
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
 
